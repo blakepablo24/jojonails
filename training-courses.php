@@ -4,7 +4,7 @@
 <div class="main-header">
         <h2>Training Courses <i class="fas fa-arrows-alt-h"></i></h2>
         <div>
-            <a href="training-courses.php"><h3>Acrylic Nails</h3></a>
+            <a href="./training-courses.php?source=acrylic-nail-course"><h3>Acrylic Nails</h3></a>
             <a href="./training-courses.php?source=gel-polish-course"><h3>Gel Polish</h3></a>
             <a href="./training-courses.php?source=manicure-and-pedicure-course"><h3>Manicure & Pedicure</h3></a>
             <a href="./training-courses.php?source=nail-art-course"><h3>Nail Art</h3></a>
@@ -23,52 +23,38 @@ if(isset($_GET['source'])){
 
     $source = $_GET['source'];
 
+    $query = "SELECT * FROM course_training WHERE course_training_db_title = '$source'";
+    $db_query = mysqli_query($connection, $query);
+    confirm($db_query);
+    $db_query_amount = mysqli_num_rows($db_query);
+
+if($db_query_amount !== 0){
+
+    while ($row = mysqli_fetch_assoc($db_query)) {
+        $course_training_id = $row['course_training_id'];
+        $course_training_image = $row['course_training_image'];
+        $course_training_title = $row['course_training_title'];
+        $course_training_db_title = $row['course_training_db_title'];
+        $course_training_duration = $row['course_training_duration'];
+        $course_training_time_start = $row['course_training_time_start'];
+        $course_training_time_end = $row['course_training_time_end'];
+        $course_training_teacher_student_ratio = $row['course_training_teacher_student_ratio'];
+        $course_training_price = $row['course_training_price'];
+        $course_training_extras = $row['course_training_extras'];
+
+    include "includes/training-courses/single-course.php";
+    }
+} else {
+    include "includes/training-courses/all-training-courses.php";
+}
+
+
 } else {
 
     $source = "";
+    include "includes/training-courses/all-training-courses.php";
 
 }
-
-switch($source) {
-    case 'gel-polish-course';
-    include "includes/training-courses/gel-polish-course.php";
-    break;
-    
-    case 'manicure-and-pedicure-course';
-    include "includes/training-courses/manicure-and-pedicure-course.php";
-    break;
-
-    case 'nail-art-course';
-    include "includes/training-courses/nail-art-course.php";
-    break;
-
-    case 'massage-course';
-    include "includes/training-courses/massage-course.php";
-    break;
-
-    case 'spray-tanning-course';
-    include "includes/training-courses/spray-tanning-course.php";
-    break;
-
-    case 'waxing-course';
-    include "includes/training-courses/waxing-course.php";
-    break;
-
-    case 'dermaplaning-course';
-    include "includes/training-courses/dermaplaning-course.php";
-    break;
-
-    case 'microneedling-course';
-    include "includes/training-courses/microneedling-course.php";
-    break;
-
-    default:
-
-    include "includes/training-courses/acrylic-nail-course.php";
-
-    break;
-}
-
 ?>
 
 </main>
