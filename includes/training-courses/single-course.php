@@ -1,3 +1,11 @@
+<div class="main-header">
+    <h2>Training Courses</h2>
+    <div>
+        <a href="./training-courses.php?source=acrylic-nail-course"><h3>Some deal or info</h3></a>
+    </div>
+</div>
+<main>
+
 <?php
 
 if(isset($_GET['source'])){

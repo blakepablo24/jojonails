@@ -1,6 +1,10 @@
-<div class="course-heading">
-    <h1>Training Courses</h1>
+<div class="main-header">
+    <h2>Training Courses</h2>
+    <div>
+        <a href="./training-courses.php?source=acrylic-nail-course"><h3>Courses from £95.00</h3></a>
+    </div>
 </div>
+<main>
 
 <?php
 

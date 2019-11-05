@@ -1,6 +1,10 @@
-<div class="course-heading">
-    <h1>Salon Treatments</h1>
+<div class="main-header">
+    <h2>Salon Treatments</h2>
+    <div>
+        <a href="./training-courses.php?source=acrylic-nail-course"><h3>Deal of the Week: 50% off Something</h3></a>
+    </div>
 </div>
+<main>
 
 <?php
 

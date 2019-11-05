@@ -103,7 +103,7 @@ nav i {
     padding-left: 5px;
 }
 
-/* BURGER MENU */
+/* BURGER MENU for small screen and landscape ipad */
 
 .overlay {
     height: 100%;
@@ -147,7 +147,7 @@ nav i {
     place-self: center center;
   }
 
-/* Large screen nav-bar */
+/* Large screen nav-bar hidden */
 
 .large-nav-bar {
     display: none;
@@ -171,8 +171,7 @@ main a {
 .main-section {
     grid-column: 1 / 3;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-flow: row;
+    grid: 3vh 1fr minmax(max-content, 15vh) / 1fr;
     margin-bottom: 30px;
     text-align: center;
     place-items: center center;
@@ -188,35 +187,7 @@ main a {
     width: 75%;
 }
 
-/* Salon Treatments Page */
-
-.main-section-items {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-auto-flow: row;
-    background: #f8f8f8;
-    margin: 0 1vw 1vh;
-    border-radius: 3px;
-    place-items: center center;
-}
-
-.main-section img {
-    border-radius: 20px;
-    width: 75%;
-}
-
-.treatment-heading {
-    display: grid;
-    grid: 1fr / 1fr 1fr;
-    place-items: center center;
-    margin: 2vh 0;
-}
-
-.treatment-heading img, .course-heading img {
-    border-radius: 25px;
-}
-
-/* Training Courses Page */
+/* Training Courses and Salon Treatments Layout */
 
 .course-heading {
     grid-column: 1 / 3;
@@ -231,10 +202,8 @@ main a {
 }
 
 .main-section-training-course {
-    height: 145px;
     display: grid;
-    grid: 1fr 1fr / 1fr;
-    grid-row-gap: 15px;
+    grid: 2.5fr 1fr / 1fr;
     margin: 5px;
     background-color: #f8f8f8;
     border-radius: 25px;
@@ -243,7 +212,8 @@ main a {
 }
 
 .main-section-training-course img {
-    width: 35%;
+    width: 100px;
+    height: 100px;
     border-radius: 25px;
 }
 
@@ -268,9 +238,10 @@ main a {
     margin-bottom: 5px;
 }
 
-.main-section-single-course img {
+.main-section-single-course img:first-of-type {
     border-radius: 15px;
-    width: 50%;
+    width: 300px;
+    height: 300px;
 }
 
 .main-section-single-course img:nth-of-type(2) {
@@ -331,7 +302,7 @@ footer {
     grid-column: 1 / 3;
 }
 
-/* Ipad or similar */
+/* IPAD OR SIMILAR */
 
 @media (min-width: 768px) and (min-height: 768px){
     main {
@@ -391,7 +362,7 @@ footer {
     }
 
     header a img {
-        width: 30%;
+        width: 15%;
         padding: 10px 0 10px 10px;
     }
 
@@ -415,8 +386,40 @@ footer {
         width: 80%;
     }
 
+    .main-section {
+        grid-column: auto;
+    }
+
     .main-section-training-course {
         grid-column: 2 / 4;
+    }
+
+    .main-section-single-course {
+        grid-column: 1 / 4;
+    }
+
+    .salon-treatments-category-header {
+        grid-column: 1 / 4;
+    }
+
+    .main-section-training-course img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .main-section-single-course {
+        margin-left: 25vw;
+        margin-right: 25vw;
+    }
+
+    .main-section-single-course img:first-of-type {
+        border-radius: 15px;
+        width: 500px;
+        height: 500px;
+    }
+
+    .main-section-single-course img:last-of-type {
+        width: 10%;
     }
 
 /* Hide mobile nav burger menu */

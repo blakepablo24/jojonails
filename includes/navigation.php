@@ -26,26 +26,11 @@
                   <a href="#">About</a>
                 </div>
             </div>
-            <div></div>
-            
     </nav>
         <!-- Nav-bar for larger screens -->
         <div class="large-nav-bar">
                 <a href="salon-treatments.php">Salon Treatments</a>
-                <div class="dropdown">
-                    <div class="dropbtn" onclick="myFunction()">Training Course <i class="fas fa-chevron-down"></i></div>
-                    <div class="dropdown-content" id="myDropdown">
-                        <a href="training-courses.php">Acrylic Nail Course</a>
-                        <a href="training-courses.php?source=gel-polish-course">Gel Polish Course</a>
-                        <a href="training-courses.php?source=manicure-and-pedicure-course">Manicure and Pedicure Course</a>
-                        <a href="training-courses.php?source=nail-art-course">Nail Art Course</a>
-                        <a href="training-courses.php?source=massage-course">Massage Course</a>
-                        <a href="training-courses.php?source=spray-tanning-course">Spray Tanning Course</a>
-                        <a href="training-courses.php?source=waxing-course">Waxing Course</a>
-                        <a href="training-courses.php?source=dermaplaning-course">Dermaplaning Course</a>
-                        <a href="training-courses.php?source=microneedling-course">Microneedling Course</a>
-                    </div>
-                </div> 
+                <a href="training-courses.php">Training Courses</a>
                 <a href="#">Certificates</a>
                 <a href="#">Reviews</a>
                 <a href="#">About</a>
