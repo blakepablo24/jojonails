@@ -28,21 +28,18 @@ while ($row = mysqli_fetch_assoc($db_query)) {
     
 ?>
 
-<div class="go-back">
-    <a href="./salon-treatments.php?source=<?php echo $salon_treatment_db_title ?>"><h5><i class="fas fa-arrow-circle-left"></i> back to <?php echo $salon_treatment_title ?></h5></a>
-</div>
-
-<div class="main-section-single-course">
+<div class="booking-form">
+    <h2><?php echo $salon_treatment_title ?></h2>
     <h2><?php echo $salon_treatment_options ?></h2>
     <img src="images/salon-treatments-images/<?php echo $salon_treatment_image ?>" alt="">
-    <h4>Duration:</h4>
-    <h3><?php echo $salon_treatment_duration ?></h3>
     <h4>Price:</h4>
     <h3><?php echo $salon_treatment_price ?></h3>
-    <h4>Info:</h4>
-    <p>Some info</p>
-    <?php echo "<a href='./salon-treatments.php?source=$salon_treatment_db_title&options=$salon_treatment_db_options&btt=true' class='book-this-treatment-button'>Book this Treatment</a>"; ?>
-    <img src="images/front-page-images/guild-of-beauty-therapists.png" alt="">      
+    <input type="text" name="name" placeholder="Enter Your Name?">
+    <input type="text" name="email" placeholder="Enter Email Address?">
+    <input type="text" name="contact_number" placeholder="Enter Contact Number?">
+    <textarea name="extra_notes" id="" cols="30" rows="5" placeholder="Any other info or special requirments?"></textarea>
+    <a href="">Privacy Policy</a>
+    <button class='book-this-treatment-button'>Submit Booking Request</button>
 </div>
 
 <?php }

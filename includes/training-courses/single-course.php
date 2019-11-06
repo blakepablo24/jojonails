@@ -57,6 +57,7 @@ while ($row = mysqli_fetch_assoc($db_query)) {
                 echo "<h4>Extra Info:</h4>".
                 "<h3>".$course_training_extras."</h3>";
             } ?>
+            <button class="book-this-treatment-button">Book this Course</button>
             <img src="images/front-page-images/guild-of-beauty-therapists.png" alt="">
         </div>
 
