@@ -240,8 +240,8 @@ main a {
 
 .main-section-single-course img:first-of-type {
     border-radius: 15px;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
 }
 
 .main-section-single-course img:nth-of-type(2) {
@@ -268,7 +268,8 @@ main a {
     background: #315b96;
     font-size: 1.5rem;
     box-shadow: 0 5px #999;
-    padding: 10px 0;
+    padding: 10px 5px;
+    place-self: center center;
 }
 
 .book-this-treatment-button:hover {
@@ -283,34 +284,40 @@ main a {
 
 .booking-form {
     grid-column: 1 / 3;
-    display: grid;
-    text-align: center;
     margin-bottom: 10px;
-    background: #fbc1bc;
     border-radius: 15px;
-    color: #233567;
     padding: 5px;
+    display: grid;
+    place-items: center center;
+    grid-template-columns: 1fr 1fr;
+    background: #fbc1bc;;
 }
 
-.booking-form input, textarea {
+.booking-form-header {
+    grid-column: 1 / 3;
+}
+
+.booking-form-selected-option {
+    display: grid;
+    grid-template-columns: 1fr;
+    background: #f8f8f8;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 5px;
+    width: 150px;
+    height: 100px;
+}
+
+.booking-form-input {
     grid-column: 1 / 3;
     text-align: center;
-    margin: 5px;
-    border-radius: 15px;
+    margin: 5px 0;
+    padding: 5px 10px;
+    width: 100%;
+    border-radius: 10px;
+    text-decoration: none;
     border: none;
-    color: #233567;
-    padding: 10px 0;
-}
-
-.booking-form h2 {
-    grid-column: 1 / 3;
-    place-self: center center;
-}
-
-.booking-form a {
-    grid-column: 1 / 3;
-    place-self: center center;
-    font-size: 1.2rem;
+    background: #f8f8f8;
 }
 
 /* Footer */
