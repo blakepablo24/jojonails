@@ -44,14 +44,25 @@ header {
     display: none;
 }
 
-header a {
+.header-icons {
+    display: grid;
+    grid: 1fr / 1fr 1fr;
+    place-items: center end;
+}
+
+.header-image {
     display: grid;
 }
 
-header a img {
+.header-image img{
+    width: 50%;
     place-self: center start;
-    width: 25%;
-    padding: 10px 0 10px 10px;
+    padding: 10px 0 0 10px;
+}
+
+.header-shopping-cart i{
+    text-decoration: none;
+    color: #315b96;
 }
 
 /* NAVIGATION */
@@ -168,24 +179,90 @@ main a {
     color: inherit;
 }
 
-.main-section {
+/* Slideshow */
+
+.container {
     grid-column: 1 / 3;
     display: grid;
-    grid: 3vh 1fr minmax(max-content, 15vh) / 1fr;
-    margin-bottom: 30px;
-    text-align: center;
+    grid: 1fr / 5vw 1fr 5vw;
     place-items: center center;
-}
+  }
 
-.main-section img {
+  .container img {
     border-radius: 20px;
     width: 75%;
     margin: 10px 0;
 }
 
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+
+  .main-section {
+    grid-column: 1 / 3;
+    display: grid;
+    grid: 3vh 1fr minmax(max-content, 15vh) / 1fr;
+    text-align: center;
+    place-items: center center;
+}
+
 .main-section p {
     width: 75%;
 }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    color: #315b96;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    padding: 3px;
+  }
+  
+  /* Position the "next button" to the right */
+  
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: #f2f2f2;
+  }
+
+.row {
+    display: grid;
+    grid-template-rows: 15vh;
+    grid-auto-flow: column;
+    place-items: center center;
+}
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    width: 50%;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
 
 /* Training Courses and Salon Treatments Layout */
 
@@ -295,6 +372,8 @@ main a {
 
 .booking-form-header {
     grid-column: 1 / 3;
+    font-weight: bold;
+    font-size: 2rem;
 }
 
 .booking-form-selected-option {
@@ -304,8 +383,17 @@ main a {
     border-radius: 15px;
     padding: 10px;
     margin-bottom: 5px;
-    width: 150px;
-    height: 100px;
+    width: 95%;
+}
+
+#hidden-details-form {
+    display: none;
+    width: 100%;
+    border: #233567 solid 1px;
+    grid-column: 1 / 3;
+    padding: 5px;
+    grid-template-columns: 1fr;
+    place-items: center center;
 }
 
 .booking-form-input {
@@ -313,7 +401,7 @@ main a {
     text-align: center;
     margin: 5px 0;
     padding: 5px 10px;
-    width: 100%;
+    width: 80%;
     border-radius: 10px;
     text-decoration: none;
     border: none;
@@ -364,6 +452,7 @@ footer {
 .salon-treatments-category-header {
     grid-column: 1 / 3;
 }
+
 
 /* IPAD OR SIMILAR */
 
@@ -459,6 +548,8 @@ footer {
 
     .main-section-single-course {
         grid-column: 1 / 4;
+        margin-left: 25vw;
+        margin-right: 25vw;
     }
 
     .salon-treatments-category-header {
@@ -470,11 +561,6 @@ footer {
         height: 200px;
     }
 
-    .main-section-single-course {
-        margin-left: 25vw;
-        margin-right: 25vw;
-    }
-
     .main-section-single-course img:first-of-type {
         border-radius: 15px;
         width: 500px;
@@ -483,6 +569,12 @@ footer {
 
     .main-section-single-course img:last-of-type {
         width: 10%;
+    }
+
+    .booking-form {
+        grid-column: 1 / 4;
+        margin-left: 25vw;
+        margin-right: 25vw;
     }
 
 /* Hide mobile nav burger menu */

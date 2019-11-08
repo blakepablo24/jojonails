@@ -1,6 +1,9 @@
     <!-- HEADER -->
     <header>
-            <a href="index.php"><img src="images/front-page-images/jojos-nails-logo-drkr1.png" alt=""></a>
+            <div class="header-icons">
+                <a class="header-image" href="index.php"><img src="images/front-page-images/jojos-nails-logo-drkr1.png" alt=""></a>
+                <a class="header-shopping-cart" href="booking-form.php"><i class="fas fa-cart-plus fa-2x"></i></a>
+            </div>
             <div class="header-large-screens">
                 <h1>JoJo's Nails & Beauty</h1>
                 <div class="header-large-screens-contact">

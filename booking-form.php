@@ -19,7 +19,7 @@ if(isset($_POST['add_to_cart'])){
             $_SESSION['shopping_cart'][$count] = $treatment_array;
         } else {
             echo "<script>alert('Treatment Already Added')</script>";
-            echo "<script>windows.location='booking-form.php'</script>";
+            echo "<script>window.location='booking-form.php'</script>";
         }
     } else {
         $treatment_array = array(
@@ -38,7 +38,7 @@ if(isset($_GET['action'])){
             if($values['treatment_db_options'] == $_GET['options_to_delete']){
                 unset($_SESSION['shopping_cart'][$keys]);
                 echo "<script>alert('Treatment Removed')</script>";
-                echo "<script>windows.location='booking-form.php'</script>";
+                echo "<script>window.location='booking-form.php'</script>";
             }
         }
     }
@@ -73,23 +73,24 @@ if(isset($_GET['action'])){
     } else {?>
         <h4 class="booking-form-header">No Treatments selected yet!</h4>
     <?php } ?>
-
-    <h3 class="booking-form-header">Your Details</h3>
-    <input class="booking-form-input" type="text" name="name" placeholder="Enter Your Name?">
-    <input class="booking-form-input" type="text" name="email" placeholder="Enter Email Address?">
-    <input class="booking-form-input" type="text" name="contact_number" placeholder="Enter Contact Number?">
-    <select class="booking-form-input" name="" id="">
-        <option value="">Preferred Time?</option>   
-        <option value="">Morning</option>
-        <option value="">Afternoon</option>
-        <option value="">Evening</option>
-    </select>
-    <textarea class="booking-form-input" name="extra_notes" id="" cols="30" rows="5" placeholder="Any other info or special requirments?"></textarea>
-    <a class="booking-form-header" href="">Privacy Policy</a>
-    <button class='book-this-treatment-button'>Submit Booking Request</button>
+    <a class="booking-form-header" href="salon-treatments.php"><h3><i class="fas fa-plus-square"></i> Add another Treatment</h3></a>
+    <button onclick="displayHiddenForm()" id="book-treatments-button" class='book-this-treatment-button'>Book Treatments</button>
+    <div id="hidden-details-form">
+        <h3 class="booking-form-header">Your Details</h3>
+        <input class="booking-form-input" type="text" name="name" placeholder="Your Name?">
+        <input class="booking-form-input" type="text" name="email" placeholder="Email Address?">
+        <input class="booking-form-input" type="text" name="contact_number" placeholder="Contact Number?">
+        <select class="booking-form-input" name="" id="">
+            <option value="">Preferred Time?</option>   
+            <option value="">Morning</option>
+            <option value="">Afternoon</option>
+            <option value="">Evening</option>
+        </select>
+        <textarea class="booking-form-input" name="extra_notes" id="" cols="30" rows="5" placeholder="Any other info or special requirments?"></textarea>
+        <a class="booking-form-header" href=""><h6>Privacy Policy</h6></a>
+        <button class='book-this-treatment-button'>Submit Booking Request</button>
+    </div>
 </div>
-
-
 
 
 </main>

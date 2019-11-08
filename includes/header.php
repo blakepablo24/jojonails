@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- Link local style sheet -->
-    <link rel="stylesheet" href="css/stylers.css">
+    <link rel="stylesheet" href="css/styles.css">
 
     <!-- Link Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">

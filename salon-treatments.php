@@ -4,14 +4,7 @@
 
 <?php
 
-
-if(isset($_GET['source']) && isset($_GET['options']) && isset($_GET['btt'])){
-
-    include "includes/booking-form.php";
-
-} else {
-
-    if(isset($_GET['source']) && isset($_GET['options'])) {
+if(isset($_GET['source']) && isset($_GET['options'])) {
 
         include "includes/salon-treatments/single-salon-treatment.php";
         
@@ -38,7 +31,6 @@ if(isset($_GET['source']) && isset($_GET['options']) && isset($_GET['btt'])){
         
         }
     }
-}
 
 
 ?>
