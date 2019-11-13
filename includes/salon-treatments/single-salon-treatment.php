@@ -32,9 +32,10 @@ while ($row = mysqli_fetch_assoc($db_query)) {
     <a href="./salon-treatments.php?source=<?php echo $salon_treatment_db_title ?>"><h5><i class="fas fa-arrow-circle-left"></i> back to <?php echo $salon_treatment_title ?></h5></a>
 </div>
 
-<form class="main-section-single-course" method="post" action="./booking-form.php?source=<?php echo $salon_treatment_db_title; ?>&options=<?php echo $salon_treatment_db_options; ?>&btt=true">
+<form class="main-section-single-course" method="post" action="./selected-treatments.php?source=<?php echo $salon_treatment_db_title; ?>&options=<?php echo $salon_treatment_db_options; ?>&btt=true">
     <input type="hidden" name="treatment_id" value="<?php echo $salon_treatment_id ?>">
-    <input type="hidden" name="treatment_title" value="<?php echo $salon_treatment_options ?>">
+    <input type="hidden" name="treatment_title" value="<?php echo $salon_treatment_title ?>">
+    <input type="hidden" name="options_title" value="<?php echo $salon_treatment_options ?>">
     <h2><?php echo $salon_treatment_options ?></h2>
     <input type="hidden" name="treatment_image" value="<?php echo $salon_treatment_image ?>">
     <img src="images/salon-treatments-images/<?php echo $salon_treatment_image ?>" alt="alt">

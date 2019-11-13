@@ -1,4 +1,13 @@
-// Mobile Nav Menu 
+$(function() {
+  $("#datepicker").datepicker({
+    minDate: "dateToday",
+    dateFormat: "dd-mm-yy",
+    ignoreReadonly: true,
+    allowInputToggle: true
+  });
+  });
+
+// Mobile Nav Menu
 function openNav() {
     document.getElementById("myNav").style.width = "100%";
   }
@@ -7,12 +16,12 @@ function openNav() {
     document.getElementById("myNav").style.width = "0%";
   }
 
-  function displayHiddenForm(){
-    document.getElementById("hidden-details-form").style.display = "grid";
-    document.getElementById("book-treatments-button").style.display = "none";
-    var elmnt = document.getElementById("hidden-details-form");
-    elmnt.scrollIntoView();
-  }
+  // function displayHiddenForm(){
+  //   document.getElementById("hidden-details-form").style.display = "grid";
+  //   document.getElementById("book-treatments-button").style.display = "none";
+  //   var elmnt = document.getElementById("hidden-details-form");
+  //   elmnt.scrollIntoView();
+  // }
 
   var slideIndex = 1;
 showSlides(slideIndex);

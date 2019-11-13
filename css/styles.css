@@ -220,10 +220,11 @@ main a {
   .prev,
   .next {
     cursor: pointer;
-    color: #315b96;
+    color: #ffdfdf;
+    background: #315b96;
     font-weight: bold;
-    font-size: 20px;
-    border-radius: 0 3px 3px 0;
+    font-size: 25px;
+    border-radius: 50px;
     padding: 3px;
   }
   
@@ -233,7 +234,8 @@ main a {
   /* On hover, add a black background color with a little bit see-through */
   .prev:hover,
   .next:hover {
-    background-color: #f2f2f2;
+    color: #315b96;;
+    background-color: #fbc1bc;
   }
 
 .row {
@@ -372,8 +374,6 @@ main a {
 
 .booking-form-header {
     grid-column: 1 / 3;
-    font-weight: bold;
-    font-size: 2rem;
 }
 
 .booking-form-selected-option {
@@ -386,26 +386,60 @@ main a {
     width: 95%;
 }
 
-#hidden-details-form {
-    display: none;
-    width: 100%;
-    border: #233567 solid 1px;
+.booking-form-selected-option-header {
     grid-column: 1 / 3;
-    padding: 5px;
-    grid-template-columns: 1fr;
-    place-items: center center;
+    margin-bottom: 3px;
 }
 
 .booking-form-input {
     grid-column: 1 / 3;
     text-align: center;
-    margin: 5px 0;
+    margin: 5px 0;  
     padding: 5px 10px;
     width: 80%;
     border-radius: 10px;
     text-decoration: none;
     border: none;
     background: #f8f8f8;
+}
+
+.go-back {
+    grid-column: 1 / 3;
+    place-self: start start;
+}
+
+.salon-treatments-category-header {
+    grid-column: 1 / 3;
+}
+
+.treatments-to-book {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.main-booking-form {
+    display: grid;
+    width: 100%;
+    background: #fbc1bc;
+    grid-column: 1 / 3;
+    padding: 5px;
+    grid-template-columns: 1fr;
+    place-items: center center;
+    margin-bottom: 15px;
+    border-radius: 15px;
+}
+
+.treatments-to-book-content {
+    font-size: 0.8rem;
+}
+
+.error {
+    color: #c90f0f;
+}
+
+.success {
+    color: #233567;
+    border: solid 3px #054b14;
 }
 
 /* Footer */
@@ -443,16 +477,6 @@ footer {
     display: grid;
     place-items: end center;
 }
-
-.go-back {
-    grid-column: 1 / 3;
-    place-self: start start;
-}
-
-.salon-treatments-category-header {
-    grid-column: 1 / 3;
-}
-
 
 /* IPAD OR SIMILAR */
 
