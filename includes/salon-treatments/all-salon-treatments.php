@@ -20,7 +20,7 @@ while ($row = mysqli_fetch_assoc($db_query)) {
 ?>
 
         <a href="./salon-treatments.php?source=<?php echo $all_salon_treatments_db_title ?>">
-            <div class="main-section-training-course">
+            <div class="multiple-item-container">
                 <img src="images/salon-treatments-images/<?php echo $all_salon_treatments_image ?>" alt="">
                 <h3><?php echo $all_salon_treatments_title ?></h3>
             </div>

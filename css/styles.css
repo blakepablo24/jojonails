@@ -10,7 +10,7 @@
 
 html {
     font-family: 'Open Sans Condensed', sans-serif;
-    background: #ffdfdf;
+    background: whitesmoke;
     height: 100%;
     color: #315b96;
     text-align: center;
@@ -57,7 +57,7 @@ header {
 .header-image img{
     width: 50%;
     place-self: center start;
-    padding: 10px 0 0 10px;
+    padding: 10px 0 10px 10px;
 }
 
 .header-shopping-cart i{
@@ -268,35 +268,33 @@ main a {
 
 /* Training Courses and Salon Treatments Layout */
 
-.course-heading {
-    grid-column: 1 / 3;
-    display: grid;
-    grid: 8vh / 1fr;
-    place-items: center center;
-    margin-bottom: 1vh;
-}
-
-.course-heading img {
-    width: 30%;
-}
-
-.main-section-training-course {
+.multiple-item-container {
     display: grid;
     grid: 2.5fr 1fr / 1fr;
-    margin: 5px;
+    margin: 7px;
     background-color: #f8f8f8;
     border-radius: 25px;
     place-items: center center;
     padding: 5px 0;
+    border: #315b96 solid 1px;
+    box-shadow: 0 5px #999;
 }
 
-.main-section-training-course img {
+.multiple-item-container:active {
+    background: #fbc1bc;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.multiple-item-container img {
     width: 100px;
     height: 100px;
     border-radius: 25px;
 }
 
-.main-section-single-course {
+/* Single Course and Treatment Layout */
+
+.single-item-container {
     background-color: #f8f8f8;
     grid-column: 1 / 3;
     margin-bottom: 10px;
@@ -305,37 +303,63 @@ main a {
     display: grid;
     place-items: center start;
     grid-template-columns: 1fr 1fr;
+    border: #315b96 solid 1px;
 }
 
-.main-section-single-course h2, img {
+.single-item-header, .single-item-main-image{
     grid-column: 1 / 3;
     place-self: center center;
     margin-bottom: 5px;
 }
 
-.main-section-single-course h4, h3 {
-    margin-bottom: 5px;
-}
-
-.main-section-single-course img:first-of-type {
+.single-item-main-image {
     border-radius: 15px;
     width: 200px;
     height: 200px;
 }
 
-.main-section-single-course img:nth-of-type(2) {
-    border-radius: 0;
+.single-item-sub-image {
+    grid-column: 1 / 3;
+    place-self: center center;
     width: 20%;
-    margin-top: 5px;
+    margin: 1vh 0;
 }
 
-.main-section-single-course h4:nth-of-type(5){
+.item-title {
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+}
+
+.item-content {
+    font-size: 0.9rem;
+    text-align: left;
+    margin-bottom: 3px;
+}
+
+.item-description {
+    grid-column: 1 / 3;
+    place-self: center center;
+    margin: 10px;
+}
+
+.item-curriculum-title {
+    font-size: 0.9rem;
     place-self: start start;
 }
 
-.main-section-single-course div {
-   text-align: left;
+.item-curriculum-content {
+    font-size: 0.9rem;
+    text-align: left;
+    margin-bottom: 2px;
 }
+
+.go-back {
+    grid-column: 1 / 3;
+    place-self: start start;
+    margin-bottom: 5px;
+}
+
+/* Booking Button */
 
 .book-this-treatment-button {
     grid-column: 1 / 3;
@@ -361,83 +385,100 @@ main a {
     transform: translateY(4px);
 }
 
-.booking-form {
+/* Items in Basket */
+
+.selected-treatments {
+    display: grid;
+    grid-template-columns: 1fr;
+    background: #fbc1bc;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 5px;
+    width: 95%;
+    place-items: center center;
+}
+
+.selected-treatments-image {
+    width: 25%;
+    border-radius: 10px;
+}
+
+.selected-treatments-header {
+    margin-bottom: 3px;
+    font-size: 0.6rem;
+}
+
+/* Booking Form */
+
+.booking-form-details {
+    grid-column: 1 / 3;
+    place-self: center center;
+    background: #fbc1bc;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 5px;
+    border-radius: 10px;
+    width: 90%;
+}
+
+.booking-form-input {
+    grid-column: 1 / 3;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    border: none;
+    background: #f8f8f8;
+    margin-bottom: 6px;
+    padding: 3px 0;
+}
+
+.training-course-to-book {
+    place-self: center center;
+    background-color: #fbc1bc;
     grid-column: 1 / 3;
     margin-bottom: 10px;
     border-radius: 15px;
     padding: 5px;
     display: grid;
     place-items: center center;
-    grid-template-columns: 1fr 1fr;
-    background: #fbc1bc;;
-}
-
-.booking-form-header {
-    grid-column: 1 / 3;
-}
-
-.booking-form-selected-option {
-    display: grid;
     grid-template-columns: 1fr;
-    background: #f8f8f8;
+    border: #315b96 solid 1px;
+}
+
+.treatments-to-book-container {
+    place-self: center center;
+    grid-column: 1 / 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.treatments-to-book {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #fbc1bc;
+    margin: 0 5px 10px 0;
     border-radius: 15px;
-    padding: 10px;
-    margin-bottom: 5px;
-    width: 95%;
+    padding: 5px;
+    border: #315b96 solid 1px;
 }
 
-.booking-form-selected-option-header {
-    grid-column: 1 / 3;
-    margin-bottom: 3px;
-}
-
-.booking-form-input {
-    grid-column: 1 / 3;
-    text-align: center;
-    margin: 5px 0;  
-    padding: 5px 10px;
-    width: 80%;
-    border-radius: 10px;
-    text-decoration: none;
-    border: none;
-    background: #f8f8f8;
-}
-
-.go-back {
-    grid-column: 1 / 3;
-    place-self: start start;
+.treatments-to-book a {
+    color: #315b96;
 }
 
 .salon-treatments-category-header {
     grid-column: 1 / 3;
 }
 
-.treatments-to-book {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-.main-booking-form {
-    display: grid;
-    width: 100%;
-    background: #fbc1bc;
-    grid-column: 1 / 3;
-    padding: 5px;
-    grid-template-columns: 1fr;
-    place-items: center center;
-    margin-bottom: 15px;
-    border-radius: 15px;
-}
-
-.treatments-to-book-content {
-    font-size: 0.8rem;
-}
+/* Booking form messages */
 
 .error {
     color: #c90f0f;
 }
 
 .success {
+    grid-column: 1 / 3;
+    place-self: center center;
     color: #233567;
     border: solid 3px #054b14;
 }

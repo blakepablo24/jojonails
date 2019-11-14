@@ -39,7 +39,7 @@
 ?>
 
 <a href="./salon-treatments.php?source=<?php echo $salon_treatment_db_title ?>&options=<?php echo $salon_treatment_db_options ?>">
-    <div class="main-section-training-course">
+    <div class="multiple-item-container">
         <img src="images/salon-treatments-images/<?php echo $salon_treatment_image ?>" alt="">
         <h3><?php echo $salon_treatment_options ?></h3>
     </div>

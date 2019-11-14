@@ -56,31 +56,33 @@ if(isset($_GET['action'])){
 </div>
 <main>
 
-<form method="post" class="booking-form" action="booking-form.php">
-    <h3 class="booking-form-header">Selected Treatments</h3>
+<form class="single-item-container" method="post" action="booking-form.php">
+    <h3 class="single-item-header">Selected Treatments</h3>
     <?php
-
     if(!empty($_SESSION['shopping_cart'])) {
     $total = 0;
     foreach($_SESSION['shopping_cart'] as $keys => $values){
     ?>
 
-    <div class="booking-form-selected-option">
-        <img width="30%" src="images/salon-treatments-images/<?php echo $values['treatment_image']; ?>" alt="img">
-        <h6 class="booking-form-selected-option-header"><?php echo $values['treatment_title']; ?></h6>    
+    <div class="selected-treatments">
+        <img class="selected-treatments-image" src="images/salon-treatments-images/<?php echo $values['treatment_image']; ?>" alt="img">
+        <h6 class="selected-treatments-header"><?php echo $values['treatment_title']; ?></h6>    
         <input type="hidden" name="selected_treatment_title[]" value="<?php echo $values['treatment_title']; ?>">
-        <h6><?php echo $values['treatment_options']; ?>: <?php echo $values['treatment_price']; ?></h6>
+        <h6 class="selected-treatments-header"><?php echo $values['treatment_options']; ?></h6>
+        <h6 class="selected-treatments-header"><?php echo $values['treatment_price']; ?></h6>
         <input type="hidden" name="selected_treatment_options[]" value="<?php echo $values['treatment_options']; ?>">
         <input type="hidden" name="selected_treatment_price[]" value="<?php echo $values['treatment_price']; ?>">
         <div></div>
-        <a href="selected-treatments.php?action=delete&options_to_delete=<?php echo $values['treatment_db_options']; ?>"><i class="fas fa-times-circle"></i></a>
+        <a class="selected-treatments-header" href="selected-treatments.php?action=delete&options_to_delete=<?php echo $values['treatment_db_options']; ?>"><i class="fas fa-times-circle"></i> Remove</a>
     </div>
-        <?php }
+        <?php } ?>
+        <a class="single-item-header" href="salon-treatments.php"><h3><i class="fas fa-plus-square"></i> Add another Treatment</h3></a>
+        <button id="book-treatments-button" class='book-this-treatment-button' name="submit_selected_treatments">Book Treatments</button>
+        <?php 
     } else {?>
-        <h4 class="booking-form-header">No Treatments selected yet!</h4>
+        <h4 class="single-item-header">No Treatments selected yet!</h4>
+        <a class="single-item-header" href="salon-treatments.php"><h3><i class="fas fa-plus-square"></i> Add a Treatment</h3></a>
     <?php } ?>
-    <a class="booking-form-header" href="salon-treatments.php"><h3><i class="fas fa-plus-square"></i> Add another Treatment</h3></a>
-    <button id="book-treatments-button" class='book-this-treatment-button' name="submit_selected_treatments">Book Treatments</button>
     
 </form>
 

@@ -26,7 +26,7 @@ while ($row = mysqli_fetch_assoc($db_query)) {
 ?>
 
         <a href="./training-courses.php?source=<?php echo $course_training_db_title ?>">
-            <div class="main-section-training-course">
+            <div class="multiple-item-container">
                 <img src="images/training-courses-images/<?php echo $course_training_image ?>" alt="">
                 <h3><?php echo $course_training_title ?></h3>
             </div>
