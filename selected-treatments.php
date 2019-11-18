@@ -48,16 +48,14 @@ if(isset($_GET['action'])){
 
     ?>
 
-<div class="main-header">
-    <h2>Salon treatments booking form</h2>
+<?php include "includes/subheader.php" ?>
     <div>
-        <a href="./training-courses.php?source=acrylic-nail-course"><h3>Some info</h3></a>
+        <a href="./training-courses.php?source=acrylic-nail-course"><h3>Treatments Basket</h3></a>
     </div>
 </div>
 <main>
 
 <form class="single-item-container" method="post" action="booking-form.php">
-    <h3 class="single-item-header">Selected Treatments</h3>
     <?php
     if(!empty($_SESSION['shopping_cart'])) {
     $total = 0;

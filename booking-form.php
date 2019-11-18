@@ -41,10 +41,9 @@ if(isset($_POST['book_course'])){
 <!-- Dynamically look for a training course or treatments -->
                 <?php
                 if(isset($_GET['source'])){?>
-                <div class="main-header">
-                    <h2>Book Your Course Here</h2>
+                <?php include "includes/subheader.php" ?>
                     <div>
-                        <a href="./training-courses.php?source=acrylic-nail-course"><h3>Some info</h3></a>
+                        <a href=""><h3>Your Selected Training Course</h3></a>
                     </div>
                 </div>
             <main>
@@ -57,8 +56,6 @@ if(isset($_POST['book_course'])){
                         if(!empty($success)){
                             echo "<span class='success'>$success</span>";
                         } else{ ?>
-
-                            <h6 class="single-item-header">Your Selected Training Course</h6>
 
                             <?php
                             $source = $_GET['source'];
@@ -103,15 +100,21 @@ if(isset($_POST['book_course'])){
 
                     <?php }
                     } elseif(!empty($_SESSION['shopping_cart'])) {?>
-
+                    <?php include "includes/subheader.php" ?>
+                    <div>
+                        <a href="./training-courses.php?source=acrylic-nail-course"><h3>Your Selected Treatments</h3></a>
+                    </div>
+                </div>
+            <main>
 <!-- Treatments Booking Form -->
 
             <form class="single-item-container" method="post" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                    <h6 class="single-item-header">Your Selected Treatments</h6>
                     <div class="treatments-to-book-container">
 
                     <?php
                     $total = 0;
+
+                    $all_treatments_costs = array();
                     foreach($_SESSION['shopping_cart'] as $keys => $values){
                     ?>
 
@@ -126,9 +129,17 @@ if(isset($_POST['book_course'])){
                             <a class="single-item-header" href="selected-treatments.php?action=delete&options_to_delete=<?php echo $values['treatment_db_options']; ?>"><i class="fas fa-times-circle"></i></a>
                         </div>
 
-                        <?php } ?>
+                        <?php 
+                        
+                        $int = preg_replace('/[^0-9.]+/', '', $values['treatment_price']);
+
+                        $all_treatments_costs[] = $int;
+                    }?>
 
                     </div>
+
+                    <h3 class="single-item-header-cost">Total cost: £<?php echo array_sum($all_treatments_costs);?></h3>
+                    
                     <div class="booking-form-details">
                         <h3 class="single-item-header">Please enter your details</h3>
                         <input class="booking-form-input" type="text" name="name" value="<?php echo $name ?>" placeholder="Your Name?">

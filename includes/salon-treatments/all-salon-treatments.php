@@ -1,7 +1,7 @@
-<div class="main-header">
-    <h2>Salon Treatments</h2>
+<?php include "includes/subheader.php" ?>
+
     <div>
-        <a href="./training-courses.php?source=acrylic-nail-course"><h3>Deal of the Week: 50% off Something</h3></a>
+        <a href="./training-courses.php?source=acrylic-nail-course"><h3>Salon Treatments</h3></a>
     </div>
 </div>
 <main>

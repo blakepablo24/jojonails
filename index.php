@@ -1,9 +1,8 @@
 <?php session_start(); ?>
 <?php include "includes/header.php"; ?>
 <?php include "includes/navigation.php"; ?>
+<?php include "includes/subheader.php" ?>
 
-    <div class="main-header">
-        <h2>JoJo's Nails and Beauty Academy</h2>
         <div>
             <a href="./training-courses.php?source=acrylic-nail-course"><h3>Specializing in only the best treatments</h3></a>
         </div>

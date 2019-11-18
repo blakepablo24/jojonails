@@ -1,13 +1,4 @@
-<div class="main-header">
-    <h2>Salon Treatments</h2>
-    <div>
-        <a href="./training-courses.php?source=acrylic-nail-course"><h3>Deal of the Week: 50% off Something</h3></a>
-    </div>
-</div>
-<main>
-<div class="go-back">
-    <a href="./salon-treatments.php"><h5><i class="fas fa-arrow-circle-left"></i> back to all salon treatments</h5></a>
-</div>
+<?php include "includes/subheader.php" ?>
 
 <?php if(isset($_GET['source'])){
 
@@ -20,8 +11,15 @@
         $salon_treatment_title = $row['salon_treatment_title'];
     }
 ?>
-  
-  <h2 class="salon-treatments-category-header"><?php echo $salon_treatment_title ?></h2>
+
+<div>
+        <a href="./training-courses.php?source=acrylic-nail-course"><h3><?php echo $salon_treatment_title ?></h3></a>
+    </div>
+</div>
+<main>
+<div class="go-back">
+    <a href="./salon-treatments.php"><h5><i class="fas fa-arrow-circle-left"></i> back to all salon treatments</h5></a>
+</div>
 
   <?php
     $query = "SELECT * FROM salon_treatment WHERE salon_treatment_db_title = '$source'";

@@ -1,7 +1,6 @@
-<div class="main-header">
-    <h2>Training Courses</h2>
+<?php include "includes/subheader.php" ?>
     <div>
-        <a href="./training-courses.php?source=acrylic-nail-course"><h3>Courses from £95.00</h3></a>
+        <a href=""><h3>Training Courses from £95.00</h3></a>
     </div>
 </div>
 <main>

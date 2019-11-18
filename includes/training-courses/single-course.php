@@ -1,11 +1,5 @@
-<div class="main-header">
-    <h2>Training Courses</h2>
-    <div>
-        <a href="./training-courses.php?source=acrylic-nail-course"><h3>Some deal or info</h3></a>
-    </div>
-</div>
-<main>
-
+<?php include "includes/subheader.php" ?>
+   
 <?php
 
 if(isset($_GET['source'])){
@@ -29,8 +23,13 @@ while ($row = mysqli_fetch_assoc($db_query)) {
     
 ?>
 
+<div>
+        <a href=""><h3><?php echo $course_training_title ?></h3></a>
+    </div>
+</div>
+<main>
+
 <form class="single-item-container">
-            <h2 class="single-item-header"><?php echo $course_training_title ?></h2>
             <img class="single-item-main-image" src="images/training-courses-images/<?php echo $course_training_image ?>" alt="">
             <h4 class="item-title">Duration:</h4>
             <h3 class="item-content"><?php echo $course_training_duration ?></h3>
