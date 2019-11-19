@@ -40,7 +40,7 @@ while ($row = mysqli_fetch_assoc($db_query)) {
             <h4 class="item-title">Price:</h4>
             <h3 class="item-content"><?php echo $course_training_price ?></h3>
             <h4 class="item-curriculum-title">Curriculum:</h4>
-            <div>
+            <div class="large-screen-layout">
             <?php
 
             $query = "SELECT * FROM course_curriculum WHERE course_training_id = $course_training_id";
@@ -52,10 +52,12 @@ while ($row = mysqli_fetch_assoc($db_query)) {
             }    
             ?>
             </div>
+            
             <?php if(!empty($course_training_extras)) {
                 echo "<h4 class='item-curriculum-title'>Extra Info:</h4>".
-                "<h3 class='item-content'>".$course_training_extras."</h3>";
+                "<div class='large-screen-layout'><h3 class='item-curriculum-content-extra'>".$course_training_extras."</h3>";
             } ?>
+            </div>
             <a href="./booking-form.php?source=<?php echo $course_training_db_title ?>" class="book-this-treatment-button">Book this Course</a>
             <img class="single-item-sub-image" src="images/front-page-images/guild-of-beauty-therapists.png" alt="">
         </form>

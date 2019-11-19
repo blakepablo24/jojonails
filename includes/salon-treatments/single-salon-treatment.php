@@ -48,9 +48,9 @@ while ($row = mysqli_fetch_assoc($db_query)) {
     <input type="hidden" name="treatment_id" value="<?php echo $salon_treatment_id ?>">
     <input type="hidden" name="treatment_title" value="<?php echo $salon_treatment_title ?>">
     <input type="hidden" name="options_title" value="<?php echo $salon_treatment_options ?>">
-    <h2 class="single-item-header"><?php echo $salon_treatment_options ?></h2>
+    <h2 id="single-item-header-large-screens" class="single-item-header"><?php echo $salon_treatment_options ?></h2>
     <input type="hidden" name="treatment_image" value="<?php echo $salon_treatment_image ?>">
-    <img class="single-item-main-image" src="images/salon-treatments-images/<?php echo $salon_treatment_image ?>" alt="alt">
+    <img id="large-screen-single-item-main-image" class="single-item-main-image" src="images/salon-treatments-images/<?php echo $salon_treatment_image ?>" alt="alt">
     <h4 class="item-title">Duration:</h4>
     <h3 class="item-content"><?php echo $salon_treatment_duration ?></h3>
     <h4 class="item-title">Price:</h4>

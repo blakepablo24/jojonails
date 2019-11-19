@@ -10,7 +10,7 @@ if(empty($_SESSION['shopping_cart']) && !isset($_GET['source'])){
 }
 
 $name_error = $email_error = $contact_number_error = $date_error = $time_error = $extra_notes_error = "";
-$success = $name = $email = $contact_number = $date = $time = $extra_notes = "";
+$name = $email = $contact_number = $date = $time = $extra_notes = "";
 
 if(isset($_POST['book_treatments'])){
 
@@ -53,11 +53,6 @@ if(isset($_POST['book_course'])){
             <form class="single-item-container" method="post" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
                     <?php 
-                        if(!empty($success)){
-                            echo "<span class='success'>$success</span>";
-                        } else{ ?>
-
-                            <?php
                             $source = $_GET['source'];
                 
                             $query = "SELECT * FROM course_training WHERE course_training_db_title = '$source'";
@@ -81,24 +76,24 @@ if(isset($_POST['book_course'])){
                         <?php } ?>
 
                     <div class="booking-form-details">
+                        <input type="hidden" name="booking_type" value="training_course">
                         <h3 class="single-item-header">Please enter your details</h3>
-                        <input class="booking-form-input" type="text" name="name" value="<?php echo $name ?>" placeholder="Your Name?">
                         <span class="error"><?php echo $name_error; ?></span>
-                        <input class="booking-form-input" type="text" name="email" value="<?php echo $email ?>"placeholder="Email Address?">
+                        <input class="booking-form-input" type="text" name="name" value="<?php echo $name ?>" placeholder="Your Name?">
                         <span class="error"><?php echo $email_error; ?></span>
+                        <input class="booking-form-input" type="text" name="email" value="<?php echo $email ?>"placeholder="Email Address?">                   
+                        <span class="error"><?php echo $contact_number_error; ?></span>    
                         <input class="booking-form-input" type="text" name="contact_number" value="<?php echo $contact_number ?>"placeholder="Contact Number?">
-                        <span class="error"><?php echo $contact_number_error; ?></span>
-                        <input id="datepicker" class="booking-form-input" type="text" value="<?php echo $date ?>" name="date" placeholder="Preferred Date?" readonly>
                         <span class="error"><?php echo $date_error; ?></span>
-                        <span class="error"><?php echo $time_error; ?></span>
+                        <input id="datepicker" class="booking-form-input" type="text" value="<?php echo $date ?>" name="date" placeholder="Preferred Date?" readonly>           
                         <textarea class="booking-form-input" name="extra_notes" id="" cols="30" rows="5" value="<?php echo $extra_notes ?>" placeholder="Any other info or special requirments?"></textarea>
                         <a class="booking-form-header" href=""><h6>Privacy Policy</h6></a>
-                        <button type="submit" class='book-this-treatment-button' name="book_course">Book Course</button>
+                        <button type="submit" id="book-selected" class='book-this-treatment-button' name="book_course">Book Course</button>
                     </div>
                 
             </form>
 
-                    <?php }
+                    <?php
                     } elseif(!empty($_SESSION['shopping_cart'])) {?>
                     <?php include "includes/subheader.php" ?>
                     <div>
@@ -141,25 +136,26 @@ if(isset($_POST['book_course'])){
                     <h3 class="single-item-header-cost">Total cost: £<?php echo array_sum($all_treatments_costs);?></h3>
                     
                     <div class="booking-form-details">
+                        <input type="hidden" name="booking_type" value="treatments">
                         <h3 class="single-item-header">Please enter your details</h3>
-                        <input class="booking-form-input" type="text" name="name" value="<?php echo $name ?>" placeholder="Your Name?">
                         <span class="error"><?php echo $name_error; ?></span>
+                        <input class="booking-form-input" type="text" name="name" value="<?php echo $name ?>" placeholder="Your Name?">
+                        <span class="error"><?php echo $email_error; ?></span>                        
                         <input class="booking-form-input" type="text" name="email" value="<?php echo $email ?>"placeholder="Email Address?">
-                        <span class="error"><?php echo $email_error; ?></span>
-                        <input class="booking-form-input" type="text" name="contact_number" value="<?php echo $contact_number ?>"placeholder="Contact Number?">
-                        <span class="error"><?php echo $contact_number_error; ?></span>
+                        <span class="error"><?php echo $contact_number_error; ?></span>                        
+                        <input class="booking-form-input" type="text" name="contact_number" value="<?php echo $contact_number ?>"placeholder="Contact Number?">      
+                        <span class="error"><?php echo $date_error; ?></span>              
                         <input id="datepicker" class="booking-form-input" type="text" value="<?php echo $date ?>" name="date" placeholder="Preferred Date?" readonly>
-                        <span class="error"><?php echo $date_error; ?></span>
+                        <span class="error"><?php echo $time_error; ?></span>
                         <select class="booking-form-input" name="time" id="">
                             <option value="Preferred Time?">Preferred Time?</option>
                             <option value="Morning" <?= $time == 'Morning' ? 'selected="selected"' : ''; ?>>Morning</option>
                             <option value="Afternoon" <?= $time == 'Afternoon' ? 'selected="selected"' : ''; ?>>Afternoon</option>
                             <option value="Evening" <?= $time == 'Evening' ? 'selected="selected"' : ''; ?>>Evening</option>
                         </select>
-                        <span class="error"><?php echo $time_error; ?></span>
                         <textarea class="booking-form-input" name="extra_notes" id="" cols="30" rows="5" value="<?php echo $extra_notes ?>" placeholder="Any other info or special requirments?"></textarea>
                         <a class="booking-form-header" href=""><h6>Privacy Policy</h6></a>
-                        <button type="submit" class='book-this-treatment-button' name="book_treatments">Book Treatments</button>
+                        <button type="submit" id="book-selected" class='book-this-treatment-button' name="book_treatments">Book Treatments</button>
                     </div>
                     <?php }
             ?>

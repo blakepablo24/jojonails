@@ -20,7 +20,7 @@ if(isset($_POST['add_to_cart'])){
             $_SESSION['shopping_cart'][$count] = $treatment_array;
         } else {
             echo "<script>alert('Treatment Already Added')</script>";
-            echo "<script>window.location='booking-form.php'</script>";
+            echo "<script>window.location='selected-treatments.php'</script>";
         }
     } else {
         $treatment_array = array(
@@ -74,12 +74,12 @@ if(isset($_GET['action'])){
         <a class="selected-treatments-header" href="selected-treatments.php?action=delete&options_to_delete=<?php echo $values['treatment_db_options']; ?>"><i class="fas fa-times-circle"></i> Remove</a>
     </div>
         <?php } ?>
-        <a class="single-item-header" href="salon-treatments.php"><h3><i class="fas fa-plus-square"></i> Add another Treatment</h3></a>
-        <button id="book-treatments-button" class='book-this-treatment-button' name="submit_selected_treatments">Book Treatments</button>
+        <a id="selected-treatments-header-large-screen" class="single-item-header" href="salon-treatments.php"><h3><i class="fas fa-plus-square"></i> Add another Treatment</h3></a>
+        <button id="selected-treatments-header-large-screen" class='book-this-treatment-button' name="submit_selected_treatments">Book Treatments</button>
         <?php 
     } else {?>
-        <h4 class="single-item-header">No Treatments selected yet!</h4>
-        <a class="single-item-header" href="salon-treatments.php"><h3><i class="fas fa-plus-square"></i> Add a Treatment</h3></a>
+        <h4 id="selected-treatments-header-large-screen" class="single-item-header">No Treatments selected yet!</h4>
+        <a id="selected-treatments-header-large-screen" class="single-item-header" href="salon-treatments.php"><h3><i class="fas fa-plus-square"></i> Add a Treatment</h3></a>
     <?php } ?>
     
 </form>
