@@ -1,5 +1,6 @@
 <?php include "includes/header.php"; ?>
 <?php include "includes/navigation.php"; ?>
+<?php include "includes/form-val.php"; ?>
 
 <?php
 
@@ -8,34 +9,6 @@ session_start();
 if(empty($_SESSION['shopping_cart']) && !isset($_GET['source'])){
     header("Location: index.php");
 }
-
-$name_error = $email_error = $contact_number_error = $date_error = $time_error = $extra_notes_error = "";
-$name = $email = $contact_number = $date = $time = $extra_notes = "";
-
-if(isset($_POST['book_treatments'])){
-
-    // take in selected treatments if booking treatments
-
-    $selected_treatment_title = $_POST['selected_treatment_title'];
-    $selected_treatment_options = $_POST['selected_treatment_options'];
-    $selected_treatment_price = $_POST['selected_treatment_price'];
-
-    include "includes/form-val.php";
-
-}
-
-if(isset($_POST['book_course'])){
-
-    // take in selected course if booking a course
-
-    $selected_course_title = $_POST['selected_course_title'];
-    $selected_course_duration = $_POST['selected_course_duration'];
-    $selected_course_price = $_POST['selected_course_price'];
-
-    include "includes/form-val.php";
-
-}
-
 ?>
 
 <!-- Dynamically look for a training course or treatments -->
