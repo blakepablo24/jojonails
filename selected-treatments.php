@@ -19,7 +19,6 @@ if(isset($_POST['add_to_cart'])){
             );
             $_SESSION['shopping_cart'][$count] = $treatment_array;
         } else {
-            echo "<script>alert('Treatment Already Added')</script>";
             echo "<script>window.location='selected-treatments.php'</script>";
         }
     } else {
@@ -39,7 +38,6 @@ if(isset($_GET['action'])){
         foreach($_SESSION['shopping_cart'] as $keys => $values){
             if($values['treatment_db_options'] == $_GET['options_to_delete']){
                 unset($_SESSION['shopping_cart'][$keys]);
-                echo "<script>alert('Treatment Removed')</script>";
                 echo "<script>window.location='selected-treatments.php'</script>";
             }
         }

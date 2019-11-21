@@ -107,6 +107,7 @@ if(empty($_SESSION['shopping_cart']) && !isset($_GET['source'])){
                     </div>
 
                     <h3 class="single-item-header-cost">Total cost: £<?php echo array_sum($all_treatments_costs);?></h3>
+                    <input type="hidden" name="total_cost" value="<?php echo array_sum($all_treatments_costs);?>">
                     
                     <div class="booking-form-details">
                         <input type="hidden" name="booking_type" value="treatments">

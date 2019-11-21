@@ -1,10 +1,17 @@
 <?php
 // validate form inputs
 
+    $sender = "jojosbooking@djbagsofun.co.uk";
+    $emailTo = "jojosbookingform@devnewsitetest.djbagsofun.co.uk";
+    $headers = "From: ".$sender;
+    $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
 $name_error = $email_error = $contact_number_error = $date_error = $time_error = $extra_notes_error = "";
 $name = $email = $contact_number = $date = $time = $extra_notes = "";
 
 if(isset($_POST['book_treatments'])){
+
+    $subject = "JoJo Nails Treatment(s) Request";
 
     // take in selected treatments if booking treatments
 
@@ -16,13 +23,10 @@ if(isset($_POST['book_treatments'])){
     $email = $_POST['email'];
     $contact_number = $_POST['contact_number'];
     $date = $_POST['date'];
-    $booking_type = $_POST['booking_type'];
-
-if(!empty($_POST['time'])){
     $time = $_POST['time'];
-}
-
-$extra_notes = $_POST['extra_notes'];
+    $booking_type = $_POST['booking_type'];
+    $extra_notes = $_POST['extra_notes'];
+    $total_cost = $_POST['total_cost'];
 
 if(empty($name)){
     $name_error = "Please Enter Your Name";
@@ -76,58 +80,81 @@ if(!empty($extra_notes)){
 // Check for errors in form
 
 if(empty($name_error) && empty($email_error) && empty($contact_number_error) && empty($date_error) && empty($time_error) && empty($extra_notes_error)){
+    
+    $total_cost = preg_replace('/[^0-9.]+/', '', $total_cost);
+
+    $selected_treatment_title_value = "";
+    $selected_treatment_options_value = "";
+    $selected_treatment_price_value = "";
+    
+    foreach ($selected_treatment_title as $key => $value){
+        $selected_treatment_title_value .= $value;
+        $selected_treatment_title_value.= "\n";
+    }
+    
+    foreach ($selected_treatment_options as $key => $value){
+        $selected_treatment_options_value .= $value;
+        $selected_treatment_options_value.= "\n";
+    }
+
+    foreach ($selected_treatment_price as $key => $value){
+        $selected_treatment_price_value .= $value;
+        $selected_treatment_price_value = preg_replace('/[^0-9.]+/', '', $selected_treatment_price_value);
+        $selected_treatment_price_value.= "\n";
+    }
 
     // Info from booking form
-    $body =
-    "Here is the info from your latest party request: "
+    $body = '<html><body>';
+    $body .= '<img width="30%" src="images/front-page-images/jojos-nails-logo-drkr1.png" alt="">';
+    "Here is the info from your latest Treatment request: "
     ." "."
     \n\n"
-    ."Occasion: ".$age."
+    ."Requested Treatments:
+    \n".$selected_treatment_title_value."
+    \n".$selected_treatment_options_value."
+    \n".$selected_treatment_price_value."
     \n"
-    ."Preferred Date: ".$date1."
+    ."Total Cost: ".$total_cost."
     \n"
-    ."Alternative Date: ".$date2."
+    ."Preferred Date: ".$date."
     \n"
-    ."Time Requested: ".$time."
+    ."Preferred Date: ".$time."
     \n"
-    ."Venue or Local Area: ".$venue."
+    ."Customer Name: ".$name."
     \n"
-    ."Name: ".$name."
+    ."Customer Contact Number: ".$contact_number."
     \n"
-    ."Contact Number: ".$contactno."
+    ."Customer Email Address: ".$email."
     \n"
-    ."Email Address: ".$emailFrom."
-    \n"
-    ."Where did you hear about me: ".$hearabout;
+    ."Customer Extra Notes: ".$extra_notes;
 
-    if ($venue_error == '' && $name_error == '' && $contactno_error == '' &&
-        $emailFrom_error == '' && $hearabout_error == '') {
+    $body .= "</body></html>";
 
+    // email details
       if (mail($emailTo, $subject, $body, $headers)) {
 
-        $venue = $name = $contactno = $emailFrom = $hearabout = "";
-        header('Location: https://djbagsofun.co.uk/tyfe.php');
-        // $success_fail = "Message Sent!";
-      }
-    }
-     else {
-      $success_fail = "Enquiry not sent, please check your form for any missing information!";
-    }
+        // Finally reset variable and shopping cart
+        $name = $email = $contact_number = $date = $time = $extra_notes = "";
+        $_SESSION['shopping_cart'] = [];
+        session_unset();
+        header("Location: tyfye.php?bt=$booking_type");
 
-    // Finally reset varable and shopping cart
-    $name = $email = $contact_number = $date = $time = $extra_notes = "";
-    $_SESSION['shopping_cart'] = [];
-    header("Location: tyfye.php?bt=$booking_type");
-}
+      }
+
+    // echo $emailTo;
+    // echo $subject;
+    // echo $body;
+    // echo $headers;
+
+} else {
+    $success_fail = "Enquiry not sent, please check your form for any missing information!";
+  }
 
 }
 
 if(isset($_POST['book_course'])){
 
-    $sender = "jojosbooking@djbagsofun.co.uk";
-    $emailTo = "jojosbookingform@devnewsitetest.djbagsofun.co.uk";
     $subject = "JoJo Nails Training Course Request";
-    $headers = "From: ".$sender;
 
     // take in selected course if booking a course
 
@@ -210,7 +237,6 @@ if(empty($name_error) && empty($email_error) && empty($contact_number_error) && 
 
         // Finally reset variable and shopping cart
         $name = $email = $contact_number = $date = $time = $extra_notes = "";
-        $_SESSION['shopping_cart'] = [];
         header("Location: tyfye.php?bt=$booking_type");
 
       }

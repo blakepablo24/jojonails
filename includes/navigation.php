@@ -25,9 +25,8 @@
                 <div class="overlay-content">
                   <a href="salon-treatments.php">Salon Treatments</a>
                   <a href="training-courses.php">Training Courses</a>
-                  <a href="#">Certificates</a>
                   <a href="#">Reviews</a>
-                  <a href="#">About</a>
+                  <a href="about.php">About</a>
                 </div>
             </div>
    
@@ -37,8 +36,7 @@
                 <a href="index.php"><img class="nav-bar-image" src="images/front-page-images/jojos-nails-logo-drkr1.png" alt=""></a>
                 <a href="salon-treatments.php">Salon Treatments</a>
                 <a href="training-courses.php">Training Courses</a>
-                <a href="#">Certificates</a>
                 <a href="#">Reviews</a>
-                <a href="#">About</a>
+                <a href="about.php">About</a>
                 <a class="header-shopping-cart" href="selected-treatments.php"><i class="fas fa-cart-plus fa-2x"></i></a>
         </div>

@@ -18,6 +18,9 @@
             echo "<h3 class='single-item-header'>Thank you for booking your training course with JoJo's Nails.</h3><h4 class='single-item-header'>A response with our availbility will be sent as soon as possible</h4>";
         } else {
             echo "<h3 class='single-item-header'>Thank you for booking your treatments with JoJo's Nails & Beauty Academy.</h3><h4 class='single-item-header'>A response with our availbility will be sent as soon as possible</h4>";
+            $_SESSION['shopping_cart'] = [];
+            session_unset();
+            session_destroy();
         }
 
     } else {
