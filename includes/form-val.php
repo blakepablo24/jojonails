@@ -7,7 +7,7 @@
     $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
 $name_error = $email_error = $contact_number_error = $date_error = $time_error = $extra_notes_error = "";
-$name = $email = $contact_number = $date = $time = $extra_notes = "";
+$name = $email = $contact_number = $date = $time = $extra_notes $gdpr_accepted = "";
 
 if(isset($_POST['book_treatments'])){
 
@@ -27,6 +27,7 @@ if(isset($_POST['book_treatments'])){
     $booking_type = $_POST['booking_type'];
     $extra_notes = $_POST['extra_notes'];
     $total_cost = $_POST['total_cost'];
+    $gdpr_accepted = ['gdpr_accepted'];
 
 if(empty($name)){
     $name_error = "Please Enter Your Name";
