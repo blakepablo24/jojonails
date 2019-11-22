@@ -29,7 +29,7 @@ while ($row = mysqli_fetch_assoc($db_query)) {
 </div>
 <main>
 
-<form class="single-item-container">
+<div class="single-item-container">
             <img class="single-item-main-image" src="images/training-courses-images/<?php echo $course_training_image ?>" alt="">
             <h4 class="item-title">Duration:</h4>
             <h3 class="item-content"><?php echo $course_training_duration ?></h3>
@@ -58,8 +58,18 @@ while ($row = mysqli_fetch_assoc($db_query)) {
                 "<div class='large-screen-layout'><h3 class='item-curriculum-content-extra'>".$course_training_extras."</h3>";
             } ?>
             </div>
-            <a href="./booking-form.php?source=<?php echo $course_training_db_title ?>" class="book-this-treatment-button">Book this Course</a>
+            <a onclick="openModal()" class='book-this-treatment-button' href="javascript:void(0)">Book Treatments</a>
+            <div id="myModal" class="modal-overlay">
+                <div class="modal-overlay-content">
+                    <h3 class="modal-header">JoJo's data storage</h3>
+                    <p>The following form collects your name, contact number and email address.</p>
+                    <p>Please view our <a class="modal-privacy-policy" href="pp.php">Privacy Policy</a> for details on we store and protect your data</p>
+                    <a href="./booking-form.php?source=<?php echo $course_training_db_title ?>" class="modal-accept">Accept</a>
+                    <input type="hidden" name="gdpr-accepted" value="yes">
+                    <a href="javascript:void(0)" class="modal-cancel" onclick="closeModal()">Cancel</i></a>
+                </div>
+            </div>
             <img class="single-item-sub-image" src="images/front-page-images/guild-of-beauty-therapists.png" alt="">
-        </form>
+        </div>
 
 <?php }} ?>

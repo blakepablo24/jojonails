@@ -212,8 +212,9 @@ if(!empty($extra_notes)){
 // Check for errors in form
 
 if(empty($name_error) && empty($email_error) && empty($contact_number_error) && empty($date_error) && empty($time_error) && empty($extra_notes_error)){
-
+    
     // Info from booking form
+    
     $body =
     "Here is the info from your latest Treatment request: "
     ." "."

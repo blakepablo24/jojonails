@@ -73,7 +73,17 @@ if(isset($_GET['action'])){
     </div>
         <?php } ?>
         <a id="selected-treatments-header-large-screen" class="single-item-header" href="salon-treatments.php"><h3><i class="fas fa-plus-square"></i> Add another Treatment</h3></a>
-        <button id="selected-treatments-header-large-screen" class='book-this-treatment-button' name="submit_selected_treatments">Book Treatments</button>
+        <a onclick="openModal()" class='book-this-treatment-button' href="javascript:void(0)">Book Treatments</a>
+        <div id="myModal" class="modal-overlay">
+            <div class="modal-overlay-content">
+                <h3 class="modal-header">JoJo's data storage</h3>
+                <p>The following form collects your name, contact number and email address.</p>
+                <p>Please view our <a class="modal-privacy-policy" href="pp.php">Privacy Policy</a> for details on we store and protect your data</p>
+                <button class='modal-accept' name="submit_selected_treatments">Accept</button>
+                <input type="hidden" name="gdpr-accepted" value="yes">
+                <a href="javascript:void(0)" class="modal-cancel" onclick="closeModal()">Cancel</i></a>
+            </div>
+        </div>
         <?php 
     } else {?>
         <h4 id="selected-treatments-header-large-screen" class="single-item-header">No Treatments selected yet!</h4>

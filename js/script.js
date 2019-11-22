@@ -51,3 +51,11 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
 }
+
+function openModal() {
+  document.getElementById("myModal").style.width = "100%";
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.width = "0%";
+}

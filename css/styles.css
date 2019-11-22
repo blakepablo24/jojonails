@@ -476,15 +476,130 @@ main a {
     font-family: 'Nunito', sans-serif;
 }
 
-/* About me Page */
+/* Booking Form terms modal */
+
+.modal-overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(251, 193, 188, 0.3);
+    overflow-x: hidden;
+    
+    display: grid;
+    grid: 1fr 9fr / 3fr 1fr;
+  }
+  
+.modal-overlay-content {
+    margin: 25vh 5vw;
+    grid-column: 1 / 3;
+    display: grid;
+    grid: 1fr / 1fr 1fr;
+    place-items: center center;
+    background: whitesmoke;
+    border-radius: 15px;
+    padding: 10px;
+    font-family: 'Nunito', sans-serif;
+  }
+
+.modal-header {
+    grid-column: 1 / 3;
+    margin-bottom: 10px;
+}
+
+.modal-overlay-content p {
+    grid-column: 1 / 3;
+    margin-bottom: 10px;
+}
+
+.modal-accept, .modal-cancel {
+    background: #315b96;
+    color: #fbc1bc;
+    padding: 10px;
+    border-radius: 15px; 
+    text-decoration: none;
+    border: none;
+}
+
+.modal-privacy-policy {
+    color: darkred;
+    font-weight: bold;
+}
+/* Reviews Page */
+
+.facebook-review-container {
+    width: 100%;
+}
+
+/* About me Page and Find us page */
 
 .about-me-image-container {
     grid-column: 1 / 3;
-    width: 90%;
+    width: 100%;
     place-self: start center;
     display: grid;
     place-items: start center;
 }
+
+/* about me slideshow */
+.about-me-container {
+    place-self: center center;
+    grid-column: 1 / 3;
+    display: grid;
+    grid: 1fr / 1fr 1fr 1fr;
+    place-items: center center;
+  }
+
+  .container img {
+    border-radius: 20px;
+    width: 75%;
+    margin: 10px 0;
+}
+
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+
+  .main-section {
+    grid-column: 1 / 3;
+    display: grid;
+    grid: 3vh 1fr minmax(max-content, 15vh) / 1fr;
+    text-align: center;
+    place-items: center center;
+}
+
+.main-section p {
+    width: 75%;
+}
+
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    color: #ffdfdf;
+    background: #315b96;
+    font-weight: bold;
+    font-size: 25px;
+    border-radius: 50%%;
+    padding: 3px;
+  }
+  
+  /* Position the "next button" to the right */
+  
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    color: #315b96;;
+    background-color: #fbc1bc;
+  }
 
 /* Google maps location */
 
@@ -499,11 +614,13 @@ main a {
 }
 
 .about-me-image {
-    width: 50%;
+    width: 150px;
+    height: 200px;
+    border-radius: 15px;
 }
 
 .about-me-image-caption-container {
-    width: 50%;
+    width: 100%;
 }
 
 .about-me-image-caption {
@@ -511,13 +628,12 @@ main a {
 }
 
 .about-me-content {
+    margin-top: 20px;
     grid-column: 1 / 3;
-    place-self: center center;
-    margin-bottom: 15px;
+    place-self: start center;
 }
 
 .about-me-content p {
-    margin-top: 15px;
     font-size: 0.8rem;
 }
 
@@ -639,7 +755,7 @@ nav {
 .large-nav-bar {
     grid-area: nav;
     display: grid;
-    grid: 15vh / repeat(6, 1fr);
+    grid: 15vh / repeat(7, 1fr);
     font-weight: bold;
 }
 

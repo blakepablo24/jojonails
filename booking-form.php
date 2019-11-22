@@ -2,6 +2,8 @@
 <?php include "includes/navigation.php"; ?>
 <?php include "includes/form-val.php"; ?>
 
+
+
 <?php
 
 session_start();
@@ -111,7 +113,7 @@ if(empty($_SESSION['shopping_cart']) && !isset($_GET['source'])){
                     
                     <div class="booking-form-details">
                         <input type="hidden" name="booking_type" value="treatments">
-                        <h3 class="single-item-header">Please enter your details</h3>
+                        <p class="single-item-header">Enter Your Details Below</p>
                         <span class="error"><?php echo $name_error; ?></span>
                         <input class="booking-form-input" type="text" name="name" value="<?php echo $name ?>" placeholder="Your Name?">
                         <span class="error"><?php echo $email_error; ?></span>                        
@@ -128,12 +130,12 @@ if(empty($_SESSION['shopping_cart']) && !isset($_GET['source'])){
                             <option value="Evening" <?= $time == 'Evening' ? 'selected="selected"' : ''; ?>>Evening</option>
                         </select>
                         <textarea class="booking-form-input" name="extra_notes" id="" cols="30" rows="5" value="<?php echo $extra_notes ?>" placeholder="Any other info or special requirments?"></textarea>
-                        <a class="booking-form-header" href=""><h6>Privacy Policy</h6></a>
                         <button type="submit" id="book-selected" class='book-this-treatment-button' name="book_treatments">Book Treatments</button>
                     </div>
                     <?php }
             ?>
                     </form>
+
 
 
 </main>
